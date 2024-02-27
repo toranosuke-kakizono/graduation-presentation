@@ -2,7 +2,8 @@
 
 createHeader();
 
-// createElement
+const fileNameOfHTML = ["Home", "Profile", "Services", "Contact"];
+
 async function createHeader() {
   try {
     let objOfElems = await createHeaderElements();
@@ -15,53 +16,87 @@ async function createHeader() {
   }
 }
 
-function createHeaderElements() {
-  const div_topBar = document.createElement("div");
-  const div_container = document.createElement("div");
-  const div_barTitle = document.createElement("div");
-  const nav_navigation = document.createElement("nav");
-  const ulElem = document.createElement("ul");
-  return { div_topBar, div_container, div_barTitle, nav_navigation, ulElem };
+async function createHeaderElements() {
+  return new Promise((resolve, reject) => {
+    try {
+      const div_topBar = document.createElement("div");
+      const div_container = document.createElement("div");
+      const div_barTitle = document.createElement("div");
+      const nav_navigation = document.createElement("nav");
+      const ulElem = document.createElement("ul");
+      console.log("1.");
+      resolve({
+        div_topBar,
+        div_container,
+        div_barTitle,
+        nav_navigation,
+        ulElem,
+      });
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
-function createListElements(objOfElems) {
-  const innerTextOfAElem = ["Home", "profile", "Services", "Contact"];
-  for (const innerText of innerTextOfAElem) {
-    const liElem = document.createElement("li");
-    const aElem = document.createElement("a");
-    liElem.appendChild(aElem);
-    aElem.href = "#";
-    aElem.innerText = innerText;
-    objOfElems.ulElem.appendChild(liElem);
-  }
-  return objOfElems;
+async function createListElements(objOfElems) {
+  return new Promise((resolve, reject) => {
+    try {
+      for (const fileName of fileNameOfHTML) {
+        const liElem = document.createElement("li");
+        const aElem = document.createElement("a");
+        aElem.href = `${fileName}.html`;
+        aElem.innerText = fileName;
+        liElem.appendChild(aElem);
+        objOfElems.ulElem.appendChild(liElem);
+        console.log(aElem.href);
+        console.log("2.");
+      }
+      resolve(objOfElems);
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
-function appendListElements(objOfElems) {
-  objOfElems.div_container.appendChild(objOfElems.div_barTitle);
-  objOfElems.nav_navigation.appendChild(objOfElems.ulElem);
-  objOfElems.div_container.appendChild(objOfElems.nav_navigation);
-  objOfElems.div_topBar.appendChild(objOfElems.div_container);
-  document.body.appendChild(objOfElems.div_topBar);
-  return objOfElems;
+async function appendListElements(objOfElems) {
+  return new Promise((resolve, reject) => {
+    try {
+      objOfElems.div_container.appendChild(objOfElems.div_barTitle);
+      objOfElems.nav_navigation.appendChild(objOfElems.ulElem);
+      objOfElems.div_container.appendChild(objOfElems.nav_navigation);
+      objOfElems.div_topBar.appendChild(objOfElems.div_container);
+      document.body.appendChild(objOfElems.div_topBar);
+      console.log("3.");
+      resolve(objOfElems);
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
-// className
-function addClassName(objOfElems) {
-  objOfElems.div_topBar.className = "top-bar";
-  objOfElems.div_container.className = "container";
-  objOfElems.div_barTitle.className = "bar-title";
-  objOfElems.nav_navigation.className = "navigation";
-  return objOfElems;
+async function addClassName(objOfElems) {
+  return new Promise((resolve, reject) => {
+    try {
+      objOfElems.div_topBar.className = "top-bar";
+      objOfElems.div_container.className = "container";
+      objOfElems.div_barTitle.className = "bar-title";
+      objOfElems.nav_navigation.className = "navigation";
+      console.log("4.");
+      resolve(objOfElems);
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 
-// innerText
-function addInnerText(objOfElems) {
-  objOfElems.div_barTitle.innerText = "CC × DIG × TORA";
-  return objOfElems;
+async function addInnerText(objOfElems) {
+  return new Promise((resolve, reject) => {
+    try {
+      objOfElems.div_barTitle.innerText = "CC × DIG × TORA";
+      console.log("5.");
+      resolve(objOfElems);
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
-
-// test
-// const testElem = createElement("h1");
-
-// document.getElementsByClassName("bar-title")[1].appent(testElem);
