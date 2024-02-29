@@ -68,6 +68,7 @@ ul {
 		opacity: 0;
 		transform: translateY(20px);
 	}
+
 	to {
 		opacity: 1;
 		transform: translateY(0);
@@ -78,6 +79,7 @@ ul {
 	from {
 		transform: scale(0);
 	}
+
 	to {
 		transform: scale(1);
 	}

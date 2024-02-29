@@ -2,7 +2,7 @@
 
 createHeader();
 
-const fileNameOfHTML = ["Home", "Profile", "Services", "Contact"];
+const fileNameOfHTML = ["Home", "Profile", "MainPage", "Gratitude"];
 
 async function createHeader() {
   try {
