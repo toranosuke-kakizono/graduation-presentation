@@ -48,6 +48,7 @@ async function createListElements(objOfElems) {
         aElem.innerText = fileName;
         liElem.appendChild(aElem);
         objOfElems.ulElem.appendChild(liElem);
+        if (fileName === "index") aElem.href = `../${fileName}.html`;
         console.log(aElem.href);
         console.log("2.");
       }
